@@ -28,6 +28,7 @@ if ([commands.export, commands.urlExport, commands.generalSettings].includes(fig
     if (versionDifference !== undefined && versionDifference !== 'patch') {
       figma.ui.resize(config.ui[figma.command].width, config.ui[figma.command].height + 60)
     }
+    console.log(exportRawTokenArray(figma, userSettings))
     // write tokens to json file
     figma.ui.postMessage({
       command: figma.command as PluginCommands,
