@@ -247,6 +247,28 @@ export const GeneralSettings = () => {
           />
         </div>
       </div>
+      <Separator/ >
+      <div className="grid-1-col">
+        <div>
+          <Title size="small" weight="bold">
+            Mode name in the token value
+            <Info
+              width={240}
+              label="If disabled, the exported json will not include the mode names in token values."
+            />
+          </Title>
+          <Checkbox
+            label="Enable/disable mode name in token value"
+            type="switch"
+            checked={settings.modeInValue}
+            onChange={(value) =>
+              updateSettings((draft) => {
+                draft.modeInValue = value;
+              })
+            }
+          />
+        </div>
+      </div>
       <Separator />
       <Title size="small" weight="bold">
         Token prefixes{" "}

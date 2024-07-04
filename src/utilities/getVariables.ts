@@ -82,10 +82,9 @@ export const getVariables = (figma: PluginAPI, settings: Settings) => {
           ...extractVariable(
             variable,
             value,
-            modes.find(({ modeId }) => modeId === id)
+            modes.find(({ modeId }) => modeId === id),
           ),
           // name is contstructed from collection, mode and variable name
-
           name: addMode
             ? `${collection}/${
                 modes.find(({ modeId }) => modeId === id).name
@@ -107,6 +106,6 @@ export const getVariables = (figma: PluginAPI, settings: Settings) => {
       })
     })
   return settings.modeReference
-    ? processAliasModes(variables.flat())
+    ? processAliasModes(variables.flat(), settings.modeInValue)
     : variables.flat()
 }

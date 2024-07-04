@@ -1,9 +1,8 @@
-const processAliasModes = (variables) => {
+const processAliasModes = (variables, modeInValue) => {
   return variables.reduce((collector, variable) => {
     // only one mode will be passed in if any
     if (!variable.aliasMode) {
       collector.push(variable)
-
       return collector
     }
 
@@ -16,10 +15,10 @@ const processAliasModes = (variables) => {
 
     collector.push({
       ...variable,
-      values: variable.values.replace(
+      values: modeInValue ? variable.values.replace(
         `{${aliasCollectionName}.`,
         `{${aliasCollectionName}.${aliasMode.name}.`
-      )
+      ) : variable.values
     })
 
     return collector

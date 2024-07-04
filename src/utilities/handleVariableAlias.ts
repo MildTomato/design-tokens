@@ -9,6 +9,7 @@ function handleVariableAlias (variable, value, mode) {
   const collection = figma.variables.getVariableCollectionById(
     resolvedAlias.variableCollectionId
   )
+
   return {
     description: variable.description || undefined,
     exportKey: tokenTypes.variables.key as tokenExportKeyType,
@@ -16,7 +17,7 @@ function handleVariableAlias (variable, value, mode) {
       Object.values(resolvedAlias.valuesByMode)[0]
     ),
     values: `{${collection.name.toLowerCase()}.${changeNotation(
-      resolvedAlias.name,
+       resolvedAlias.name,
       '/',
       '.'
     )}}`,

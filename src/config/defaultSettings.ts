@@ -21,6 +21,7 @@ export const defaultSettings: Settings = {
   keyInName: false,
   prefixInName: true,
   modeReference: true,
+  modeInValue: true,
   prefix: {
     color: 'color',
     gradient: 'gradient',
